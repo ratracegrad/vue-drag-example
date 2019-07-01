@@ -10,7 +10,11 @@
                 @mouseup="dragEnd($event)"
                 @mousemove="drag($event)"
             >
-                <div id="item" ref="item"></div>
+                <div id="item" ref="item">
+                    <p>First Item</p>
+                    <p>Second Item</p>
+                    <p>Third Item</p>
+                </div>
             </div>
         </div>
     </div>
@@ -106,11 +110,7 @@ export default {
     touch-action: none;
 }
 #item {
-    width: 100px;
-    height: 100px;
-    background-color: rgb(245, 230, 99);
-    border: 10px solid rgba(136, 136, 136, 0.5);
-    border-radius: 50%;
+    width: 100%;
     touch-action: none;
     user-select: none;
 }
@@ -119,6 +119,5 @@ export default {
 }
 #item:hover {
     cursor: pointer;
-    border-width: 20px;
 }
 </style>
