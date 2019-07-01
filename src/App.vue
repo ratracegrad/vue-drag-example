@@ -1,5 +1,22 @@
 <template>
-    <div id="app">
+    <v-app id="app">
+        <!--        <v-container fluid style="border: 1px solid blue;">-->
+        <!--            <div-->
+        <!--                id="item"-->
+        <!--                ref="item"-->
+        <!--                @touchstart="dragStart($event)"-->
+        <!--                @touchend="dragEnd($event)"-->
+        <!--                @touchmove="drag($event)"-->
+        <!--                @mousedown="dragStart($event)"-->
+        <!--                @mouseup="dragEnd($event)"-->
+        <!--                @mousemove="drag($event)"-->
+        <!--            >-->
+        <!--                <v-icon color="black">drag_handle</v-icon>-->
+        <!--                <p>First Item</p>-->
+        <!--                <p>Second Item</p>-->
+        <!--                <p>Third Item</p>-->
+        <!--            </div>-->
+        <!--        </v-container>-->
         <div id="outerContainer">
             <div
                 id="container"
@@ -11,13 +28,13 @@
                 @mousemove="drag($event)"
             >
                 <div id="item" ref="item">
-                    <p>First Item</p>
-                    <p>Second Item</p>
-                    <p>Third Item</p>
+                    <p>Hello World</p>
+                    <p>Hello World</p>
+                    <p>Hello World</p>
                 </div>
             </div>
         </div>
-    </div>
+    </v-app>
 </template>
 
 <script>
@@ -69,11 +86,7 @@ export default {
                 this.xOffset = this.currentX;
                 this.yOffset = this.currentY;
 
-                this.setTranslate(
-                    this.currentX,
-                    this.currentY,
-                    this.$refs.item
-                );
+                this.setTranslate(0, this.currentY, this.$refs.item);
             }
         },
         setTranslate(xPos, yPos, el) {
@@ -93,11 +106,6 @@ export default {
     justify-content: center;
     align-items: center;
 }
-#outerContainer {
-    width: 100%;
-    height: 100%;
-    border: 1px solid red;
-}
 #container {
     width: 100%;
     height: 400px;
@@ -111,18 +119,35 @@ export default {
 }
 #item {
     width: 100%;
+    /*height: 100px;*/
+    background-color: rgb(245, 230, 99);
+    border: 10px solid rgba(136, 136, 136, 0.5);
+    /*border-radius: 50%;*/
     touch-action: none;
     user-select: none;
-    background: white;
-    padding: 20px;
 }
 #item:active {
     background-color: rgba(168, 218, 220, 1);
 }
 #item:hover {
     cursor: pointer;
+    /*border-width: 20px;*/
 }
+/*#item {*/
+/*    !*width: 100%;*!*/
+/*    touch-action: none;*/
+/*    user-select: none;*/
+/*    background: white;*/
+/*    padding: 20px;*/
+/*}*/
+/*#item:active {*/
+/*    background-color: rgba(168, 218, 220, 1);*/
+/*}*/
+/*#item:hover {*/
+/*    cursor: pointer;*/
+/*}*/
 p {
     border-bottom: 1px solid black;
+    color: black;
 }
 </style>
