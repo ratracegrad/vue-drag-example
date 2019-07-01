@@ -113,11 +113,16 @@ export default {
     width: 100%;
     touch-action: none;
     user-select: none;
+    background: white;
+    padding: 20px;
 }
 #item:active {
     background-color: rgba(168, 218, 220, 1);
 }
 #item:hover {
     cursor: pointer;
+}
+p {
+    border-bottom: 1px solid black;
 }
 </style>
