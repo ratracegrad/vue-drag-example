@@ -27,11 +27,19 @@
                 @mouseup="dragEnd($event)"
                 @mousemove="drag($event)"
             >
-                <div id="item" ref="item">
-                    <p>Hello World</p>
-                    <p>Hello World</p>
-                    <p>Hello World</p>
-                </div>
+                <v-container fluid fill-height id="item" ref="item">
+                    <v-layout row wrap class="scroll-box-grid px-2">
+                        <v-flex
+                            v-for="(machine, $machineIndex) in machines"
+                            :key="$machineIndex"
+                            class="line-grid-wrap"
+                        >
+                            <span class="subheading" style="height: 30px;">{{
+                                machine.name
+                            }}</span>
+                        </v-flex>
+                    </v-layout>
+                </v-container>
             </div>
         </div>
     </v-app>
@@ -48,7 +56,456 @@ export default {
             initialX: null,
             initialY: null,
             xOffset: 0,
-            yOffset: 0
+            yOffset: 0,
+            machines: [
+                {
+                    name: 'Brushless Drill',
+                    status: 'up',
+                    data: [
+                        {
+                            workOrderId: '123',
+                            sku: '04081962',
+                            status: 'green',
+                            maintenance: true,
+                            offset: 2,
+                            length: 8
+                        },
+                        {
+                            workOrderId: '222',
+                            sku: '04081962',
+                            status: 'red',
+                            offset: 24,
+                            length: 12
+                        }
+                    ]
+                },
+                {
+                    name: 'Sample Machine',
+                    status: 'down',
+                    data: [
+                        {
+                            workOrderId: 123,
+                            sku: '04081962',
+                            status: 'green',
+                            offset: 0,
+                            length: 3
+                        },
+                        {
+                            workOrderId: 222,
+                            sku: '04081962',
+                            status: 'green',
+                            offset: 5,
+                            length: 16
+                        },
+                        {
+                            workOrderId: 'A472',
+                            sku: '04081962',
+                            status: 'grey',
+                            offset: 25,
+                            length: 8
+                        }
+                    ]
+                },
+                {
+                    name: 'Hair Dryer',
+                    status: 'maintenance',
+                    data: [
+                        {
+                            workOrderId: 123,
+                            sku: '04081962',
+                            status: 'green',
+                            offset: 1,
+                            length: 5
+                        },
+                        {
+                            workOrderId: 222,
+                            sku: '04081962',
+                            status: 'green',
+                            offset: 7,
+                            length: 2
+                        },
+                        {
+                            workOrderId: 222,
+                            sku: '04081962',
+                            status: 'grey',
+                            offset: 12,
+                            length: 8
+                        }
+                    ]
+                },
+                {
+                    name: 'Blue Yeti Microphone',
+                    status: 'up',
+                    data: [
+                        {
+                            workOrderId: 123,
+                            sku: '04081962',
+                            status: 'green',
+                            offset: 2,
+                            length: 2
+                        },
+                        {
+                            workOrderId: 222,
+                            sku: '04081962',
+                            status: 'red',
+                            offset: 6,
+                            length: 3
+                        }
+                    ]
+                },
+                {
+                    name: 'Lucky the Cat',
+                    status: 'down',
+                    data: [
+                        {
+                            workOrderId: 123,
+                            sku: '04081962',
+                            status: 'green',
+                            offset: 0,
+                            length: 3
+                        },
+                        {
+                            workOrderId: 222,
+                            sku: '04081962',
+                            status: 'green',
+                            offset: 5,
+                            length: 4
+                        },
+                        {
+                            workOrderId: 'A472',
+                            sku: '04081962',
+                            status: 'grey',
+                            offset: 13,
+                            length: 2
+                        },
+                        {
+                            workOrderId: 'id42',
+                            sku: '04081962',
+                            status: 'red',
+                            offset: 18,
+                            length: 3
+                        }
+                    ]
+                },
+                {
+                    name: 'Nalgene Bottle',
+                    status: 'maintenance',
+                    data: [
+                        {
+                            workOrderId: 123,
+                            sku: '04081962',
+                            status: 'green',
+                            offset: 1,
+                            length: 20
+                        },
+                        {
+                            workOrderId: 222,
+                            sku: '04081962',
+                            status: 'green',
+                            offset: 27,
+                            length: 3
+                        }
+                    ]
+                },
+                {
+                    name: 'Brushless Drill',
+                    status: 'up',
+                    data: [
+                        {
+                            workOrderId: '123',
+                            sku: '04081962',
+                            status: 'green',
+                            maintenance: true,
+                            offset: 2,
+                            length: 8
+                        },
+                        {
+                            workOrderId: '222',
+                            sku: '04081962',
+                            status: 'red',
+                            offset: 24,
+                            length: 12
+                        }
+                    ]
+                },
+                {
+                    name: 'Sample Machine',
+                    status: 'down',
+                    data: [
+                        {
+                            workOrderId: 123,
+                            sku: '04081962',
+                            status: 'green',
+                            offset: 0,
+                            length: 3
+                        },
+                        {
+                            workOrderId: 222,
+                            sku: '04081962',
+                            status: 'green',
+                            offset: 5,
+                            length: 16
+                        },
+                        {
+                            workOrderId: 'A472',
+                            sku: '04081962',
+                            status: 'grey',
+                            offset: 25,
+                            length: 8
+                        }
+                    ]
+                },
+                {
+                    name: 'Hair Dryer',
+                    status: 'maintenance',
+                    data: [
+                        {
+                            workOrderId: 123,
+                            sku: '04081962',
+                            status: 'green',
+                            offset: 1,
+                            length: 5
+                        },
+                        {
+                            workOrderId: 222,
+                            sku: '04081962',
+                            status: 'green',
+                            offset: 7,
+                            length: 2
+                        },
+                        {
+                            workOrderId: 222,
+                            sku: '04081962',
+                            status: 'grey',
+                            offset: 12,
+                            length: 8
+                        }
+                    ]
+                },
+                {
+                    name: 'Blue Yeti Microphone',
+                    status: 'up',
+                    data: [
+                        {
+                            workOrderId: 123,
+                            sku: '04081962',
+                            status: 'green',
+                            offset: 2,
+                            length: 2
+                        },
+                        {
+                            workOrderId: 222,
+                            sku: '04081962',
+                            status: 'red',
+                            offset: 6,
+                            length: 3
+                        }
+                    ]
+                },
+                {
+                    name: 'Lucky the Cat',
+                    status: 'down',
+                    data: [
+                        {
+                            workOrderId: 123,
+                            sku: '04081962',
+                            status: 'green',
+                            offset: 0,
+                            length: 3
+                        },
+                        {
+                            workOrderId: 222,
+                            sku: '04081962',
+                            status: 'green',
+                            offset: 5,
+                            length: 4
+                        },
+                        {
+                            workOrderId: 'A472',
+                            sku: '04081962',
+                            status: 'grey',
+                            offset: 13,
+                            length: 2
+                        },
+                        {
+                            workOrderId: 'id42',
+                            sku: '04081962',
+                            status: 'red',
+                            offset: 18,
+                            length: 3
+                        }
+                    ]
+                },
+                {
+                    name: 'Nalgene Bottle',
+                    status: 'maintenance',
+                    data: [
+                        {
+                            workOrderId: 123,
+                            sku: '04081962',
+                            status: 'green',
+                            offset: 1,
+                            length: 20
+                        },
+                        {
+                            workOrderId: 222,
+                            sku: '04081962',
+                            status: 'green',
+                            offset: 27,
+                            length: 3
+                        }
+                    ]
+                },
+                {
+                    name: 'Brushless Drill',
+                    status: 'up',
+                    data: [
+                        {
+                            workOrderId: '123',
+                            sku: '04081962',
+                            status: 'green',
+                            maintenance: true,
+                            offset: 2,
+                            length: 8
+                        },
+                        {
+                            workOrderId: '222',
+                            sku: '04081962',
+                            status: 'red',
+                            offset: 24,
+                            length: 12
+                        }
+                    ]
+                },
+                {
+                    name: 'Sample Machine',
+                    status: 'down',
+                    data: [
+                        {
+                            workOrderId: 123,
+                            sku: '04081962',
+                            status: 'green',
+                            offset: 0,
+                            length: 3
+                        },
+                        {
+                            workOrderId: 222,
+                            sku: '04081962',
+                            status: 'green',
+                            offset: 5,
+                            length: 16
+                        },
+                        {
+                            workOrderId: 'A472',
+                            sku: '04081962',
+                            status: 'grey',
+                            offset: 25,
+                            length: 8
+                        }
+                    ]
+                },
+                {
+                    name: 'Hair Dryer',
+                    status: 'maintenance',
+                    data: [
+                        {
+                            workOrderId: 123,
+                            sku: '04081962',
+                            status: 'green',
+                            offset: 1,
+                            length: 5
+                        },
+                        {
+                            workOrderId: 222,
+                            sku: '04081962',
+                            status: 'green',
+                            offset: 7,
+                            length: 2
+                        },
+                        {
+                            workOrderId: 222,
+                            sku: '04081962',
+                            status: 'grey',
+                            offset: 12,
+                            length: 8
+                        }
+                    ]
+                },
+                {
+                    name: 'Blue Yeti Microphone',
+                    status: 'up',
+                    data: [
+                        {
+                            workOrderId: 123,
+                            sku: '04081962',
+                            status: 'green',
+                            offset: 2,
+                            length: 2
+                        },
+                        {
+                            workOrderId: 222,
+                            sku: '04081962',
+                            status: 'red',
+                            offset: 6,
+                            length: 3
+                        }
+                    ]
+                },
+                {
+                    name: 'Lucky the Cat',
+                    status: 'down',
+                    data: [
+                        {
+                            workOrderId: 123,
+                            sku: '04081962',
+                            status: 'green',
+                            offset: 0,
+                            length: 3
+                        },
+                        {
+                            workOrderId: 222,
+                            sku: '04081962',
+                            status: 'green',
+                            offset: 5,
+                            length: 4
+                        },
+                        {
+                            workOrderId: 'A472',
+                            sku: '04081962',
+                            status: 'grey',
+                            offset: 13,
+                            length: 2
+                        },
+                        {
+                            workOrderId: 'id42',
+                            sku: '04081962',
+                            status: 'red',
+                            offset: 18,
+                            length: 3
+                        }
+                    ]
+                },
+                {
+                    name: 'Nalgene Bottle',
+                    status: 'maintenance',
+                    data: [
+                        {
+                            workOrderId: 123,
+                            sku: '04081962',
+                            status: 'green',
+                            offset: 1,
+                            length: 20
+                        },
+                        {
+                            workOrderId: 222,
+                            sku: '04081962',
+                            status: 'green',
+                            offset: 27,
+                            length: 3
+                        }
+                    ]
+                }
+            ]
         };
     },
     methods: {
@@ -102,52 +559,36 @@ export default {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 #container {
+    position: absolute;
+    bottom: 0;
     width: 100%;
-    height: 400px;
+    height: 60vh;
     background-color: #333;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    border-radius: 7px;
     touch-action: none;
 }
 #item {
-    width: 100%;
-    /*height: 100px;*/
-    background-color: rgb(245, 230, 99);
-    border: 10px solid rgba(136, 136, 136, 0.5);
-    /*border-radius: 50%;*/
     touch-action: none;
     user-select: none;
-}
-#item:active {
-    background-color: rgba(168, 218, 220, 1);
+    position: absolute;
+    bottom: 0;
+    border: 1px solid red;
 }
 #item:hover {
     cursor: pointer;
-    /*border-width: 20px;*/
 }
-/*#item {*/
-/*    !*width: 100%;*!*/
-/*    touch-action: none;*/
-/*    user-select: none;*/
-/*    background: white;*/
-/*    padding: 20px;*/
-/*}*/
-/*#item:active {*/
-/*    background-color: rgba(168, 218, 220, 1);*/
-/*}*/
-/*#item:hover {*/
-/*    cursor: pointer;*/
-/*}*/
-p {
-    border-bottom: 1px solid black;
-    color: black;
+.scroll-box-grid {
+    height: 100%;
+    overflow: auto;
+}
+.line-grid-wrap {
+    cursor: pointer;
+    overflow: hidden;
+    width: 100%;
+    border: 2px solid;
+    color: white;
+    padding: 5px 0;
+    margin: 0 0 10px;
 }
 </style>
